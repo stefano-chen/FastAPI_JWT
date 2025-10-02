@@ -15,12 +15,10 @@ jwt_dependency = Annotated[JWT, Depends(get_jwt)]
 
 @router.post("/auth/token")
 async def get_token(body: LoginBodySchema, user_repo: user_repository_dependency, hasher: password_hasher_dependency, jwt: jwt_dependency) -> LoginResponseSchema:
-    user_email = body.email
-    user = user_repo.find_user_by_email(user_email)
+    user = user_repo.find_user_by_email(body.email)
     if not user:
         raise InvalidCredentialsException
-    hashed_password = user.password
-    if not hasher.verify(body.password, hashed_password):
+    if not hasher.verify(body.password, user.password):
         raise InvalidCredentialsException
     payload = AccessTokenSchema.from_user_model(user).model_dump()
     access_token = jwt.generate_access_token(payload)
