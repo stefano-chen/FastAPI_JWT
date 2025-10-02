@@ -1,10 +1,13 @@
+
+# List all users
 GET http://localhost:8000/users
 
 ###
 
+# Create User
 POST http://localhost:8000/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwiZW1haWwiOiJzdGVmYW5vQHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDE5NTk5fQ.t6oVlcsXMhZdwbMaTcEy55gzJe3ygvsvB1q4zn0gGdc
+Authorization: Bearer 
 
 {
     "email": "test@test.com",
@@ -14,10 +17,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwiZW1ha
 
 ###
 
+# User by id
 GET http://localhost:8000/users/3
 
 ###
 
+# Login
 POST http://localhost:8000/auth/token
 Content-Type: application/json
 
@@ -28,10 +33,11 @@ Content-Type: application/json
 
 ###
 
+# refresh
 GET http://localhost:8000/auth/refresh
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwiZW1haWwiOiJzdGVmYW5vQHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NTAxODQ5LCJpc19yZWZyZXNoIjp0cnVlfQ.mR4yasevyRzIGYQAbQGK5VCytuY_hgALZ2YZMkzVCVU
-
+Authorization: Bearer 
 ###
 
+# who am i
 GET http://localhost:8000/whoami
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwiZW1haWwiOiJzdGVmYW5vQHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDE5MDI3fQ.l7SH2pZ14cPfUMcJtW6YEguqr_NACdryAHkg-68U4C0
+Authorization: Bearer 
