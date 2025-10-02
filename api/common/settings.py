@@ -8,6 +8,10 @@ class Settings:
         self.PSQL_HOST=os.getenv("PSQL_HOST")
         self.PSQL_PORT=os.getenv("PSQL_PORT")
         self.PSQL_DB=os.getenv("PSQL_DB")
+        self.JWT_SECRET=os.getenv("JWT_SECRET")
+        self.JWT_ALGORITHM=os.getenv("JWT_ALGORITHM")
+        self.ACCESS_TOKEN_DURATION=os.getenv("ACCESS_TOKEN_DURATION")
+        self.REFRESH_TOKEN_DURATION=os.getenv("REFRESH_TOKEN_DURATION")
 
 
 def get_settings():

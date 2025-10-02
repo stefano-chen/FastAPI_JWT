@@ -24,6 +24,9 @@ class UserRepository:
             
     def find_user_by_id(self, id: int) -> User | None:
         return self.db_session.query(User).filter(User.id == id).first()
+    
+    def find_user_by_email(self, email: str) -> User | None:
+        return self.db_session.query(User).filter(User.email == email).first()
                 
     
 

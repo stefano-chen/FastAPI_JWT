@@ -13,3 +13,13 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8000/users/2
+
+###
+
+POST http://localhost:8000/auth/token
+Content-Type: application/json
+
+{
+    "email": "flavio@test.com",
+    "password": "stefano"
+}
