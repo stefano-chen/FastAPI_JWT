@@ -23,3 +23,8 @@ Content-Type: application/json
     "email": "flavio@test.com",
     "password": "stefano"
 }
+
+###
+
+GET http://localhost:8000/auth/refresh
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMiIsImVtYWlsIjoiZmxhdmlvQHRlc3QuY29tIiwiZXhwIjoxNzU5NDk0NTE1LCJpc19yZWZyZXNoIjp0cnVlfQ.lGadBQ53BYzYgzj41UPz41yHqQgvI2UV1B_BOdQw6SA

@@ -14,7 +14,7 @@ class AccessTokenSchema(BaseModel):
     def from_user_model(cls, user: User):
         return AccessTokenSchema(sub=str(user.id), email=user.email)
     
-class LoginResponseSchema(BaseModel):
+class TokenResponseSchema(BaseModel):
     access_token: str
     refresh_token: str
     token_type: str
