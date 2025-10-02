@@ -6,13 +6,14 @@ POST http://localhost:8000/users
 Content-Type: application/json
 
 {
-    "email": "flavio@test.com",
-    "password": "stefano"
+    "email": "stefano@test.com",
+    "password": "stefano",
+    "role": "ADMIN"
 }
 
 ###
 
-GET http://localhost:8000/users/2
+GET http://localhost:8000/users/3
 
 ###
 
@@ -20,16 +21,16 @@ POST http://localhost:8000/auth/token
 Content-Type: application/json
 
 {
-    "email": "flavio@test.com",
+    "email": "stefano@test.com",
     "password": "stefano"
 }
 
 ###
 
 GET http://localhost:8000/auth/refresh
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMiIsImVtYWlsIjoiZmxhdmlvQHRlc3QuY29tIiwiZXhwIjoxNzU5NDk0NTE1LCJpc19yZWZyZXNoIjp0cnVlfQ.lGadBQ53BYzYgzj41UPz41yHqQgvI2UV1B_BOdQw6SA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwiZW1haWwiOiJzdGVmYW5vQHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NTAwOTQyLCJpc19yZWZyZXNoIjp0cnVlfQ.iAhRYvOyYvB2HVeOi6AGk2WnRT2i2gLwbUxoZLdgrGg
 
 ###
 
 GET http://localhost:8000/whoami
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMiIsImVtYWlsIjoiZmxhdmlvQHRlc3QuY29tIiwiZXhwIjoxNzU5NDEzMDAwfQ.9BTPhu076FqndV2HsEZ77qfcuT_ZdFywe0vQbqzcUXY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwiZW1haWwiOiJzdGVmYW5vQHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDE4MTUzfQ.9isp6O5iCJ-rmWYQA9spz3ClH-I_Hp1T8MsMmJDdr5o

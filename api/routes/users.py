@@ -7,6 +7,7 @@ from ..exceptions.user_exceptions import UserNotFoundException
 from ..common.hash import get_password_hasher, Hasher
 from ..common.token import JWT, get_jwt
 from ..common.headers import get_token_payload
+from ..common.roles import Roles
 
 router = APIRouter(tags=["users"])
 
@@ -23,7 +24,7 @@ async def get_all_users(user_repo: user_repository_dependency) -> List[UserRespo
 @router.post("/users")
 async def create_user(body: UserCreateSchema, user_repo: user_repository_dependency, hasher: password_hasher_dependency) -> UserResponseSchema:
     hashed_password = hasher.hash(body.password)
-    user = User(email=body.email, password=hashed_password)
+    user = User(email=body.email, password=hashed_password, role=Roles(body.role))
     added_user = user_repo.add_user(user)
     return UserResponseSchema.from_user_model(added_user)
 
@@ -37,4 +38,4 @@ async def get_user_by_id(user_ID: int, user_repo: user_repository_dependency) ->
 @router.get("/whoami")
 async def get_whoami(jwt:jwt_dependency, authorization: Annotated[str | None, Header()] = None):
     payload = get_token_payload(authorization, jwt)
-    return UserResponseSchema(id=int(payload["sub"]), email=payload["email"])
+    return UserResponseSchema.from_token_payload(payload)
