@@ -3,4 +3,4 @@ from .routes import users
 
 app = FastAPI()
 
-app.add_api_route(users.router)
+app.include_router(users.router)
