@@ -18,7 +18,15 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+from api.models.base import Base
+from api.models.user import User
+from api.common.settings import get_settings
+
+target_metadata = Base.metadata
+
+settings = get_settings()
+
+config.set_main_option("sqlalchemy.url", f"postgresql://{settings.PSQL_USER}:{settings.PSQL_PASSWORD}@{settings.PSQL_HOST}:{settings.PSQL_PORT}/{settings.PSQL_DB}")
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
