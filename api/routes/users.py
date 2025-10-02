@@ -4,8 +4,8 @@ from typing import Annotated, List
 from ..schemas.user_schema import UserResponseSchema, UserCreateSchema
 from ..models.user_model import User
 from ..exceptions.user_exceptions import UserNotFoundException
+from ..exceptions.auth_exceptions import NotAuthorizedException
 from ..common.hash import get_password_hasher, Hasher
-from ..common.token import JWT, get_jwt
 from ..common.headers import get_token_payload
 from ..common.roles import Roles
 
@@ -21,7 +21,9 @@ async def get_all_users(user_repo: user_repository_dependency) -> List[UserRespo
     return response_users
 
 @router.post("/users")
-async def create_user(body: UserCreateSchema, user_repo: user_repository_dependency, hasher: password_hasher_dependency) -> UserResponseSchema:
+async def create_user(body: UserCreateSchema, user_repo: user_repository_dependency, hasher: password_hasher_dependency, token_payload: Annotated[dict, Depends(get_token_payload)]) -> UserResponseSchema:
+    if token_payload["role"] != Roles.ADMIN.value:
+        raise NotAuthorizedException
     hashed_password = hasher.hash(body.password)
     user = User(email=body.email, password=hashed_password, role=Roles(body.role))
     added_user = user_repo.add_user(user)

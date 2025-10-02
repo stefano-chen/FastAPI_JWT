@@ -15,3 +15,7 @@ class InvalidTokenException(HTTPException):
 class NotRefreshTokenException(HTTPException):
     def __init__(self):
         super().__init__(401, "Not a refresh token")
+
+class NotAuthorizedException(HTTPException):
+    def __init__(self):
+        super().__init__(403, "Not Authorized")

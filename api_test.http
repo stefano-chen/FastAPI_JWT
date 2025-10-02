@@ -4,9 +4,10 @@ GET http://localhost:8000/users
 
 POST http://localhost:8000/users
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwiZW1haWwiOiJzdGVmYW5vQHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDE5NTk5fQ.t6oVlcsXMhZdwbMaTcEy55gzJe3ygvsvB1q4zn0gGdc
 
 {
-    "email": "stefano@test.com",
+    "email": "test@test.com",
     "password": "stefano",
     "role": "ADMIN"
 }
