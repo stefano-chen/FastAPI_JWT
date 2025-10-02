@@ -18,9 +18,12 @@ class UserRepository:
                 self.db_session.add(user)
                 self.db_session.commit()
                 return user
-            except IntegrityError as e:
+            except IntegrityError:
                 self.db_session.rollback()
                 raise EmailAlreadyInUseException
+            
+    def find_user_by_id(self, id: int) -> User | None:
+        return self.db_session.query(User).filter(User.id == id).first()
                 
     
 

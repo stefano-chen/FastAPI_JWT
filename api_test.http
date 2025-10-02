@@ -9,3 +9,7 @@ Content-Type: application/json
     "email": "stefano@test.com",
     "password": "stefano"
 }
+
+###
+
+GET http://localhost:8000/users/2
