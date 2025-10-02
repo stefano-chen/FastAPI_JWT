@@ -1,15 +1,18 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Header
 from ..repositories.user_repository import get_user_repository, UserRepository
 from typing import Annotated, List
 from ..schemas.user_schema import UserResponseSchema, UserCreateSchema
 from ..models.user_model import User
 from ..exceptions.user_exceptions import UserNotFoundException
 from ..common.hash import get_password_hasher, Hasher
+from ..common.token import JWT, get_jwt
+from ..common.headers import get_token_payload
 
 router = APIRouter(tags=["users"])
 
 user_repository_dependency = Annotated[UserRepository, Depends(get_user_repository)]
 password_hasher_dependency = Annotated[Hasher, Depends(get_password_hasher)]
+jwt_dependency = Annotated[JWT, Depends(get_jwt)]
 
 @router.get("/users")
 async def get_all_users(user_repo: user_repository_dependency) -> List[UserResponseSchema]:
@@ -30,3 +33,8 @@ async def get_user_by_id(user_ID: int, user_repo: user_repository_dependency) ->
     if not user:
         raise UserNotFoundException
     return UserResponseSchema.from_user_model(user)
+
+@router.get("/whoami")
+async def get_whoami(jwt:jwt_dependency, authorization: Annotated[str | None, Header()] = None):
+    payload = get_token_payload(authorization, jwt)
+    return UserResponseSchema(id=int(payload["sub"]), email=payload["email"])
