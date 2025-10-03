@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, Header
 from ..repositories.user_repository import get_user_repository, UserRepository
 from typing import Annotated, List
-from ..schemas.user_schema import UserResponseSchema, UserCreateSchema
+from ..schemas.user_schema import UserResponseSchema, UserCreateSchema, UserWithOrdersResponseSchema
 from ..models.user_model import UserModel
 from ..exceptions.user_exceptions import UserNotFoundException
 from ..exceptions.auth_exceptions import NotAuthorizedException
@@ -18,12 +18,12 @@ password_hasher_dependency = Annotated[Hasher, Depends(get_password_hasher)]
 async def get_all_users(
         user_repo: user_repository_dependency, 
         token_payload: Annotated[dict, Depends(get_token_payload)]
-    ) -> List[UserResponseSchema]:
+    ) -> List[UserWithOrdersResponseSchema]:
 
     if token_payload["role"] != Roles.ADMIN.value:
         raise NotAuthorizedException
     users = user_repo.find_all_users()
-    response_users = [UserResponseSchema.from_user_model(user) for user in users]
+    response_users = [UserWithOrdersResponseSchema.from_user_model(user) for user in users]
     return response_users
 
 @router.post("/users")

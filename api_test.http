@@ -1,7 +1,7 @@
 
 # List all users
 GET http://localhost:8000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDg2MzIzfQ.aRRsDhLXjzy4Nt3QqQ3aayeOZO-ooUlZqApwGI7z2TQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDg5NjA0fQ.8VxfqJNIO9OHoYEdpKu8NfDSJE4lgVkzfBwPB3UDY_s
 
 ###
 
@@ -23,8 +23,6 @@ GET http://localhost:8000/users/3
 ###
 
 # Login
-# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDg2MzIzfQ.aRRsDhLXjzy4Nt3QqQ3aayeOZO-ooUlZqApwGI7z2TQ
-# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NTY1MTY5LCJpc19yZWZyZXNoIjp0cnVlfQ.wDwOJwskF8J-DMceh5gDkJ_3QS0kd5CxiHW-IQFVJ6s
 POST http://localhost:8000/auth/token
 Content-Type: application/json
 
@@ -42,7 +40,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1ha
 
 # who am i
 GET http://localhost:8000/whoami
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDgyMzY5fQ.O-D0t0IO_BapLuG1JWiG06SM-yvg34i2Og_qAiuQcaA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDg5NjA0fQ.8VxfqJNIO9OHoYEdpKu8NfDSJE4lgVkzfBwPB3UDY_s
 
 ###
 
