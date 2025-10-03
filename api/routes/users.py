@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, Header
-from ..repositories.user_repository import get_user_repository, UserRepository
+from repositories.user_repository import get_user_repository, UserRepository
 from typing import Annotated, List
-from ..schemas.user_schema import UserResponseSchema, UserCreateSchema, UserWithOrdersResponseSchema
-from ..models.user_model import UserModel
-from ..exceptions.user_exceptions import UserNotFoundException
-from ..exceptions.auth_exceptions import NotAuthorizedException
-from ..common.hash import get_password_hasher, Hasher
-from ..common.headers import get_token_payload
-from ..common.roles import Roles
+from schemas.user_schema import UserResponseSchema, UserCreateSchema, UserWithOrdersResponseSchema
+from models.user_model import UserModel
+from exceptions.user_exceptions import UserNotFoundException
+from exceptions.auth_exceptions import NotAuthorizedException
+from common.hash import get_password_hasher, Hasher
+from common.headers import get_token_payload
+from common.roles import Roles
 
 router = APIRouter(tags=["users"])
 

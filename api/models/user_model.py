@@ -1,6 +1,6 @@
 from .base_model import Base
 from sqlalchemy import Column, Integer, String, Enum
-from ..common.roles import Roles
+from common.roles import Roles
 from .order_model import OrderModel
 from sqlalchemy.orm import relationship
 

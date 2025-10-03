@@ -1,8 +1,8 @@
-from ..db.connection import get_db_session
+from db.connection import get_db_session
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
-from ..models.user_model import UserModel
-from ..exceptions.user_exceptions import EmailAlreadyInUseException
+from models.user_model import UserModel
+from exceptions.user_exceptions import EmailAlreadyInUseException
 from typing import List, Union
 
 class UserRepository:

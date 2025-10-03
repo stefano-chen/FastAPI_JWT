@@ -1,5 +1,5 @@
 from pydantic import BaseModel, EmailStr
-from ..models.order_model import OrderModel
+from models.order_model import OrderModel
 
 class OrderCreateSchema(BaseModel):
     amount: float

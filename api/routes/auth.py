@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, Header
-from ..schemas.auth_schema import LoginBodySchema
+from schemas.auth_schema import LoginBodySchema
 from typing import Annotated
-from ..repositories.user_repository import get_user_repository, UserRepository
-from ..common.hash import get_password_hasher, Hasher
-from ..exceptions.auth_exceptions import InvalidCredentialsException, TokenMissingException, InvalidTokenException, NotRefreshTokenException
-from ..exceptions.user_exceptions import UserNotFoundException
-from ..common.token import get_jwt, JWT
-from ..schemas.auth_schema import AccessTokenSchema, TokenResponseSchema
-from ..common.headers import get_token_payload
+from repositories.user_repository import get_user_repository, UserRepository
+from common.hash import get_password_hasher, Hasher
+from exceptions.auth_exceptions import InvalidCredentialsException, TokenMissingException, InvalidTokenException, NotRefreshTokenException
+from exceptions.user_exceptions import UserNotFoundException
+from common.token import get_jwt, JWT
+from schemas.auth_schema import AccessTokenSchema, TokenResponseSchema
+from common.headers import get_token_payload
 
 router = APIRouter(tags=["auth"])
 

@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
-from ..common.headers import get_token_payload
+from common.headers import get_token_payload
 from typing import Annotated
-from ..schemas.order_schema import OrderCreateSchema, OrderResponseSchema
-from ..models.order_model import OrderModel
-from ..repositories.order_repository import OrderRepository, get_order_repository
+from schemas.order_schema import OrderCreateSchema, OrderResponseSchema
+from models.order_model import OrderModel
+from repositories.order_repository import OrderRepository, get_order_repository
 
 router = APIRouter(tags=["orders"])
 

@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr
-from ..models.user_model import UserModel
-from ..common.roles import Roles
+from models.user_model import UserModel
+from common.roles import Roles
 from typing import Dict, Any, List, Optional
 
 class UserSchema(BaseModel):

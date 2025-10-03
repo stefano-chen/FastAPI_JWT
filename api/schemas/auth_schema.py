@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr
-from ..models.user_model import UserModel
-from ..common.roles import Roles
+from models.user_model import UserModel
+from common.roles import Roles
 
 class LoginBodySchema(BaseModel):
     email: EmailStr

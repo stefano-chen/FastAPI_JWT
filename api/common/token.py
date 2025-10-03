@@ -1,7 +1,7 @@
 import jwt
 from typing import Dict, Any
 from datetime import datetime, timezone, timedelta
-from ..common.settings import get_settings
+from common.settings import get_settings
 
 class JWT:
     def __init__(self, secret: str, algorithm: str, access_token_duration: int, refresh_token_duration: int):

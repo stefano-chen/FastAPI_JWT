@@ -46,9 +46,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1ha
 
 # Create Order
 POST http://localhost:8000/orders
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDg2MzIzfQ.aRRsDhLXjzy4Nt3QqQ3aayeOZO-ooUlZqApwGI7z2TQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDg5NjA0fQ.8VxfqJNIO9OHoYEdpKu8NfDSJE4lgVkzfBwPB3UDY_s
 Content-Type: application/json
 
 {
-    "amount": 100
+    "amount": 1000.50
 }

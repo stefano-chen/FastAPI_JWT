@@ -1,7 +1,7 @@
 from typing import Dict, Any, Annotated
 from fastapi import Header
-from ..exceptions.auth_exceptions import TokenMissingException, InvalidTokenException
-from ..common.token import JWT, get_jwt
+from exceptions.auth_exceptions import TokenMissingException, InvalidTokenException
+from common.token import JWT, get_jwt
 
 def get_token_payload(authorization: Annotated[str | None, Header()]) -> Dict[str, Any]:
     jwt = get_jwt()

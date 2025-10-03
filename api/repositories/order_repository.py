@@ -1,6 +1,6 @@
-from ..db.connection import get_db_session
+from db.connection import get_db_session
 from sqlalchemy.orm import Session
-from ..models.order_model import OrderModel
+from models.order_model import OrderModel
 from typing import List, Union
 
 class OrderRepository:
