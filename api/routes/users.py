@@ -15,7 +15,11 @@ user_repository_dependency = Annotated[UserRepository, Depends(get_user_reposito
 password_hasher_dependency = Annotated[Hasher, Depends(get_password_hasher)]
 
 @router.get("/users")
-async def get_all_users(user_repo: user_repository_dependency, token_payload: Annotated[dict, Depends(get_token_payload)]) -> List[UserResponseSchema]:
+async def get_all_users(
+        user_repo: user_repository_dependency, 
+        token_payload: Annotated[dict, Depends(get_token_payload)]
+    ) -> List[UserResponseSchema]:
+
     if token_payload["role"] != Roles.ADMIN.value:
         raise NotAuthorizedException
     users = user_repo.find_all_users()
@@ -23,7 +27,12 @@ async def get_all_users(user_repo: user_repository_dependency, token_payload: An
     return response_users
 
 @router.post("/users")
-async def create_user(body: UserCreateSchema, user_repo: user_repository_dependency, hasher: password_hasher_dependency) -> UserResponseSchema:
+async def create_user(
+        body: UserCreateSchema, 
+        user_repo: user_repository_dependency,
+        hasher: password_hasher_dependency
+      ) -> UserResponseSchema:
+    
     hashed_password = hasher.hash(body.password)
     user = UserModel(email=body.email, password=hashed_password, role=Roles(body.role))
     added_user = user_repo.add_user(user)

@@ -16,7 +16,13 @@ password_hasher_dependency = Annotated[Hasher, Depends(get_password_hasher)]
 jwt_dependency = Annotated[JWT, Depends(get_jwt)]
 
 @router.post("/auth/token")
-async def get_token(body: LoginBodySchema, user_repo: user_repository_dependency, hasher: password_hasher_dependency, jwt: jwt_dependency) -> TokenResponseSchema:
+async def get_token(
+        body: LoginBodySchema, 
+        user_repo: user_repository_dependency, 
+        hasher: password_hasher_dependency, 
+        jwt: jwt_dependency
+    ) -> TokenResponseSchema:
+
     user = user_repo.find_user_by_email(body.email)
     if not user:
         raise InvalidCredentialsException
@@ -28,7 +34,12 @@ async def get_token(body: LoginBodySchema, user_repo: user_repository_dependency
     return TokenResponseSchema(access_token=access_token, refresh_token=refresh_token, token_type="Bearer")
 
 @router.get("/auth/refresh")
-async def refresh_token(jwt: jwt_dependency, user_repo: user_repository_dependency, token_payload: Annotated[dict, Depends(get_token_payload)]) -> TokenResponseSchema:
+async def refresh_token(
+        jwt: jwt_dependency, 
+        user_repo: user_repository_dependency, 
+        token_payload: Annotated[dict, Depends(get_token_payload)]
+    ) -> TokenResponseSchema:
+    
     if not token_payload.pop("is_refresh", False):
         raise NotRefreshTokenException
     user = user_repo.find_user_by_id(token_payload["sub"])
