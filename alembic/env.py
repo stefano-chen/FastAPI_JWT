@@ -20,6 +20,7 @@ if config.config_file_name is not None:
 # target_metadata = mymodel.Base.metadata
 from api.models.base_model import Base
 from api.models.user_model import UserModel
+from api.models.order_model import OrderModel
 from api.common.settings import get_settings
 
 target_metadata = Base.metadata
