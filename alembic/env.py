@@ -18,16 +18,23 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
+import os
 from api.models.base_model import Base
 from api.models.user_model import UserModel
 from api.models.order_model import OrderModel
-from api.common.settings import get_settings
+from dotenv import load_dotenv
 
 target_metadata = Base.metadata
 
-settings = get_settings()
+load_dotenv()
 
-config.set_main_option("sqlalchemy.url", f"postgresql://{settings.PSQL_USER}:{settings.PSQL_PASSWORD}@{settings.PSQL_HOST}:{settings.PSQL_PORT}/{settings.PSQL_DB}")
+PSQL_USER = os.getenv("PSQL_USER")
+PSQL_PASSWORD = os.getenv("PSQL_PASSWORD")
+PSQL_HOST = os.getenv("PSQL_HOST")
+PSQL_PORT = os.getenv("PSQL_PORT")
+PSQL_DB = os.getenv("PSQL_DB")
+
+config.set_main_option("sqlalchemy.url", f"postgresql://{PSQL_USER}:{PSQL_PASSWORD}@{PSQL_HOST}:{PSQL_PORT}/{PSQL_DB}")
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
