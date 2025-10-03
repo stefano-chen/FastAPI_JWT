@@ -2,7 +2,7 @@ from .base_model import Base
 from sqlalchemy import Column, Integer, String, Enum
 from ..common.roles import Roles
 
-class User(Base):
+class UserModel(Base):
     __tablename__ = "users"
     
     id = Column(Integer, primary_key=True)

@@ -1,7 +1,7 @@
 
 # List all users
 GET http://localhost:8000/users
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDc5NzU2fQ.MRPTbZR5tZrpVTgUyarJqRrGvPSBbtQFJQLqruVkUQU
 
 ###
 
@@ -11,7 +11,7 @@ Content-Type: application/json
 
 {
     "email": "test@test.com",
-    "password": "stefano",
+    "password": "test",
     "role": "ADMIN"
 }
 
@@ -23,21 +23,23 @@ GET http://localhost:8000/users/3
 ###
 
 # Login
+# Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDc5NzU2fQ.MRPTbZR5tZrpVTgUyarJqRrGvPSBbtQFJQLqruVkUQU
+# Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NTYyNTU2LCJpc19yZWZyZXNoIjp0cnVlfQ.uBzzfkqk7kQnjNaGylm4Sioa-GM4_-pOuQLu3oy2C_s
 POST http://localhost:8000/auth/token
 Content-Type: application/json
 
 {
-    "email": "stefano@test.com",
-    "password": "stefano"
+    "email": "test@test.com",
+    "password": "test"
 }
 
 ###
 
 # refresh
 GET http://localhost:8000/auth/refresh
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NTYyNTU2LCJpc19yZWZyZXNoIjp0cnVlfQ.uBzzfkqk7kQnjNaGylm4Sioa-GM4_-pOuQLu3oy2C_s
 ###
 
 # who am i
 GET http://localhost:8000/whoami
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzU5NDc5NzU2fQ.MRPTbZR5tZrpVTgUyarJqRrGvPSBbtQFJQLqruVkUQU

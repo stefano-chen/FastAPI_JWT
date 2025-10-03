@@ -1,5 +1,5 @@
 from pydantic import BaseModel, EmailStr
-from ..models.user_model import User
+from ..models.user_model import UserModel
 from ..common.roles import Roles
 
 class LoginBodySchema(BaseModel):
@@ -13,7 +13,7 @@ class AccessTokenSchema(BaseModel):
     role: Roles
 
     @classmethod
-    def from_user_model(cls, user: User):
+    def from_user_model(cls, user: UserModel):
         return AccessTokenSchema(sub=str(user.id), email=user.email, role=user.role)
     
 class TokenResponseSchema(BaseModel):

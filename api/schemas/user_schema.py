@@ -1,5 +1,5 @@
 from pydantic import BaseModel, EmailStr
-from ..models.user_model import User
+from ..models.user_model import UserModel
 from ..common.roles import Roles
 from typing import Dict, Any
 
@@ -9,7 +9,7 @@ class UserResponseSchema(BaseModel):
     role: Roles
 
     @classmethod
-    def from_user_model(cls, user: User):
+    def from_user_model(cls, user: UserModel):
         return UserResponseSchema(id=user.id, email=user.email, role=user.role)
     
     @classmethod
