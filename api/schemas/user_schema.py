@@ -1,16 +1,22 @@
 from pydantic import BaseModel, EmailStr
 from ..models.user_model import UserModel
 from ..common.roles import Roles
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 class UserResponseSchema(BaseModel):
     id: int
     email: str
     role: Roles
+    orders: List[int]
 
     @classmethod
     def from_user_model(cls, user: UserModel):
-        return UserResponseSchema(id=user.id, email=user.email, role=user.role)
+        return UserResponseSchema(
+            id=user.id,
+            email=user.email, 
+            role=user.role, 
+            orders=[order.id for order in user.orders]
+        )
     
     @classmethod
     def from_token_payload(cls, payload: Dict[str, Any]):
